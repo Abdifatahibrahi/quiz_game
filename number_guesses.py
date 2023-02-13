@@ -15,17 +15,28 @@ else:
 
 random_no = random.randint(0,top_of_range)
 
+guesses = 0
+
 
 while True:
-    guess_number = input("Guess a number")
+    guess_number = input("Guess a number: ")
+    guesses += 1
     if guess_number.isdigit():
         guess_number = int(guess_number)
     
     else:
         print("Kindly enter integer!!")
-        quit()
+        continue
     if guess_number == random_no:
         print("You got it!!")
         break
     else:
-        print("You got it wrong")
+        if guess_number > random_no:
+            print("You are above the number")
+        else: 
+            print("You are below the number")
+
+if guesses > 1:
+    print("You got it in", guesses, "guesses")
+else:  
+    print("You got it in", guesses, "guess")    
