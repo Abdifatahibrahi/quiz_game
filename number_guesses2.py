@@ -1,35 +1,39 @@
 import random
 
-top_of_range = input("Enter the top of your range: ")
+top_random = input("Enter the maximum number of your range: ")
 
-if top_of_range.isdigit():
-    top_of_range = int(top_of_range)
-    if top_of_range <= 0:
-        print("Kindly enter a number that is greater than 0")
+if top_random.isdigit():
+    top_random = int(top_random)
+    if top_random <= 0:
+        print("Enter a number greater than 0")
         quit()
 else:
-    print("Enter a digit next time!!")
+    print("Enter an interger ")
     quit()
 
-random_no = random.randint(0,top_of_range)
-guesses = 0
+random_number = random.randint(1, top_random)
+guess = 0
 
 while True:
-    guess_no = input("Guess a number: ")
-    guesses += 1
-    if guess_no.isdigit():
-        guess_no = int(guess_no)
-    
-    else:
-        print("Enter a digit next time!!")
-        continue
-    if guess_no == random_no:
-        print("You got it correct")
-        break
-    elif guess_no > random_no:
-        print("Your guess number is above the random number")
-    else:
-        print("Your guess number is below the random number")
+    guess_number = input("Guess a number: ")
+    guess += 1
+    if guess_number.isdigit():
+        guess_number = int(guess_number)
+        if guess_number == random_number:
+            print("You got it correct!")
+            break
+        elif guess_number > random_number:
+            print("Your guess number is greater than your random number")
+            continue
+        elif guess_number < random_number:
+            print("Your guess number is less than your random number")
+            continue
 
+    else:
+        print("Enter an interger ")
+        quit()
 
-print("You got it in", guesses, "guesses")
+if guess > 1:
+    print("You got in", guess, "guesses")
+else:
+    print("You got in", guess, "guess")
